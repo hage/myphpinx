@@ -1,8 +1,6 @@
 include .env
 
 COMPOSE=cd docker && docker-compose
-DOCKER=docker
-GIT=git
 
 APP_CONTAINER=app
 
