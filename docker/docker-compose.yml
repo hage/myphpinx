@@ -14,7 +14,7 @@ services:
   app:
     build:
       context: ./app
-    env_file: ../.env
+    env_file: ../config.env
     environment:
       DB_HOST: db
     depends_on:
@@ -25,7 +25,7 @@ services:
 
   db:
     image: mysql:latest
-    env_file: ../.env
+    env_file: ../config.env
     ports:
       - "3306:3306"
     volumes:

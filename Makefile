@@ -1,4 +1,4 @@
-include .env
+include config.env
 
 COMPOSE=cd docker && docker-compose
 
