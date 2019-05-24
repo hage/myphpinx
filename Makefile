@@ -6,7 +6,7 @@ GIT=git
 
 APP_CONTAINER=app
 
-.PHONY: up down stop force-build dump-db drop-db load-db reset-db
+.PHONY: up down stop build force-build dump-db drop-db load-db reset-db bash
 
 up:
 	$(COMPOSE) up -d
@@ -16,6 +16,9 @@ stop:
 
 down:
 	$(COMPOSE) down
+
+build: down
+	$(COMPOSE) build
 
 force-build: down
 	$(COMPOSE) build --force-rm
