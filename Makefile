@@ -1,6 +1,6 @@
 include .env
 
-COMPOSE=docker-compose
+COMPOSE=cd docker && docker-compose
 DOCKER=docker
 GIT=git
 
