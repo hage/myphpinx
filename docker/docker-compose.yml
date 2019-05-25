@@ -28,9 +28,11 @@ services:
     env_file: ../config.env
     ports:
       - "3306:3306"
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
-      - db-data:/var/lib/mysql
-      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./db/data:/var/lib/mysql
+      - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./db/sql:/docker-entrypoint-initdb.d
 
 # database のように永続的なストレージが欲しい場合に必要な
 # https://docs.docker.com/compose/compose-file/#volume-configuration-reference
