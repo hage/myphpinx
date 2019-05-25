@@ -41,3 +41,6 @@ reset-db:
 
 bash:
 	$(COMPOSE) exec $(APP_CONTAINER) /bin/bash
+
+dbbash:
+	$(COMPOSE) exec db /bin/bash

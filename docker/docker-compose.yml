@@ -24,11 +24,10 @@ services:
       - ./app/php-fpm.conf:/usr/local/etc/php/php-fpm.conf
 
   db:
-    image: mysql:latest
+    build: ./db
     env_file: ../config.env
     ports:
       - "3306:3306"
-    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
       - ./db/data:/var/lib/mysql
       - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
