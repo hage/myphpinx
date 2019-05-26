@@ -15,6 +15,10 @@ stop:
 down:
 	$(COMPOSE) down
 
+reup:
+	$(MAKE) down
+	$(MAKE) up
+
 build: down
 	$(COMPOSE) build
 
