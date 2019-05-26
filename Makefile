@@ -4,7 +4,7 @@ COMPOSE=cd docker && docker-compose
 
 APP_CONTAINER=app
 
-.PHONY: up down stop build force-build dump-db drop-db load-db reset-db bash
+.PHONY: up down stop build force-build dump-db drop-db load-db reset-db sh
 
 up:
 	$(COMPOSE) up -d
@@ -39,8 +39,9 @@ load-db:
 reset-db:
 	rm -rf db-data/*
 
-bash:
-	$(COMPOSE) exec $(APP_CONTAINER) /bin/bash
+sh:
+	$(COMPOSE) exec $(APP_CONTAINER) /bin/sh
+	@echo " "
 
 dbbash:
 	$(COMPOSE) exec db /bin/bash
