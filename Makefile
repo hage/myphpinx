@@ -1,8 +1,11 @@
 include config.env
 
-COMPOSE=cd docker && docker-compose
+COMPOSE=$(MAKE) -s docker/.env && cd docker && docker-compose
 
 APP_CONTAINER=app
+
+docker/.env: config.env
+	ln -s ../config.env docker/.env
 
 .PHONY: up down stop build force-build dump-db drop-db load-db reset-db sh
 

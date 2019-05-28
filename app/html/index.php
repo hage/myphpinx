@@ -11,7 +11,7 @@ echo '</pre>';
 <?php
 // mysql
 try {
-  $dbh = new PDO("mysql:host=db;dbname={$CONFIG['MYSQL_DATABASE']}", $CONFIG['MYSQL_USER'], $CONFIG['MYSQL_PASSWORD']);
+  $dbh = new PDO("mysql:host=db;dbname={$CONFIG['MYSQL_DATABASE']};port={$CONFIG['MYSQL_PORT']}", $CONFIG['MYSQL_USER'], $CONFIG['MYSQL_PASSWORD']);
   echo '<pre>';
   foreach ($dbh->query("select * from test_table") as $row) {
     print_r($row);

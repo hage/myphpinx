@@ -27,9 +27,9 @@ services:
 
   db:
     build: ./db
-    env_file: ../config.env
+    env_file: .env
     expose:
-      - "3306"
+      - "${MYSQL_PORT}"
     volumes:
       - ./db/data:/var/lib/mysql
       - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
