@@ -18,6 +18,8 @@ services:
       DB_HOST: db
     depends_on:
       - db
+    links:
+      - db
     volumes:
       - ../app:/var/www
       - ./app/php-fpm.conf:/usr/local/etc/php/php-fpm.conf
@@ -26,8 +28,8 @@ services:
   db:
     build: ./db
     env_file: ../config.env
-    ports:
-      - "3306:3306"
+    expose:
+      - "3306"
     volumes:
       - ./db/data:/var/lib/mysql
       - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
