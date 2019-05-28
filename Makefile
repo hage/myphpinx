@@ -29,7 +29,7 @@ db:
 	$(COMPOSE) exec db sh -c 'mysql --host=localhost --user=${MYSQL_USER} --password=$(MYSQL_PASSWORD) $(MYSQL_DATABASE)'
 
 dbroot:
-	$(COMPOSE) exec db sh -c 'mysql --host=localhost --user=root --password=$(MYSQL_ROOT_PASSWORD) $(MYSQL_DATABASE)'
+	$(COMPOSE) exec db sh -c 'mysql --host=localhost --user=root --password=$(MYSQL_ROOT_PASSWORD) mysql'
 
 dump-db:
 	$(COMPOSE) exec db sh -c "mysqldump --databases $(MYSQL_DATABASE) --add-drop-database -u $(MYSQL_USER) -p$(MYSQL_PASSWORD) 2> /dev/null" > docker-entrypoint-initdb.d/shema.sql
