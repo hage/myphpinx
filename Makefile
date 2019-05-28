@@ -40,8 +40,8 @@ drop-db:
 load-db:
 	$(COMPOSE) exec db sh -c "cat docker-entrypoint-initdb.d/schema.sql|mysql -u $(MYSQL_USER) --password=$(MYSQL_PASSWORD) --batch --silent 2>/dev/null"
 
-reset-db:
-	rm -rf db-data/*
+reset-db: down
+	rm -rf docker/db/data
 
 sh:
 	$(COMPOSE) exec $(APP_CONTAINER) /bin/sh
