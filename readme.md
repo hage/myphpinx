@@ -16,6 +16,6 @@ config.env の [`COMPOSE_PROJECT_NAME`エントリ](http://docs.docker.jp/compos
 
 * このリポジトリを clone
 * .git を消す
-* 改めて `git init . && git add . && git commit 'initial commit'`
+* 改めて `git init . && git add . && git commit -m 'initial commit'`
 * プロジェクトに応じて Docker の設定を調整してコミット
 * 開発開始
