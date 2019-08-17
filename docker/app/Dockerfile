@@ -1,9 +1,10 @@
 FROM php:fpm-alpine
-RUN docker-php-ext-install pdo_mysql bcmath
 
 # パッケージのインストール
 RUN apk update \
-    && apk add --no-cache --virtual .install-things unzip git
+    && apk add --no-cache unzip git zlib-dev libzip-dev
+
+RUN docker-php-ext-install pdo_mysql bcmath zip
 
 # composer のインストール
 ENV COMPOSER_ALLOW_SUPERUSER 1
@@ -14,8 +15,5 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 RUN curl -sSLO https://phar.phpunit.de/phpunit.phar \
     && chmod +x phpunit.phar \
     && mv phpunit.phar /usr/local/bin/phpunit
-
-# 不要なパッケージの削除
-RUN apk del .install-things
 
 WORKDIR /var/www/html
