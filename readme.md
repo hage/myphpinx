@@ -6,9 +6,9 @@
 
 初回起動時および `make reset-db` 後はデータベースの再構築に起動後 1 分ほどかかります。それまでの間 web ブラウザによるアクセスや `make db` による mysql 起動はエラーになります。
 
-`make up` で起動しますが、その前に `config.env.dist` を `config.env` にコピーしてください。データベースの設定情報等をここに記述しますが、とりあえず起動するにはコピーするだけで十分です。
+`make up` で起動しますが、その前に `dot.env.dist` を `.env` にコピーしてください。データベースの設定情報等をここに記述しますが、とりあえず起動するにはコピーするだけで十分です。
 
-config.env の [`COMPOSE_PROJECT_NAME`エントリ](http://docs.docker.jp/compose/reference/envvars.html#id7) にプロジェクト名を設定すると生成されるコンテナ名がこの値に応じて設定されます。ここは Docker の環境でグローバルに見える部分ですのでプロジェクトに応じて設定した方が良いでしょう。
+`.env` の [`COMPOSE_PROJECT_NAME`エントリ](http://docs.docker.jp/compose/reference/envvars.html#id7) にプロジェクト名を設定すると生成されるコンテナ名がこの値に応じて設定されます。ここは Docker の環境でグローバルに見える部分ですのでプロジェクトに応じて設定した方が良いでしょう。
 
 ## 開発の手順
 

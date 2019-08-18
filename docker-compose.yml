@@ -1,19 +1,19 @@
 version: "2"
 services:
   web:
-    build: ./web
+    build: ./docker/web
     ports:
       - "80:80"
       - "443:443"
     depends_on:
       - app
     volumes:
-      - ./web/default.conf:/etc/nginx/conf.d/default.conf
-      - ../app:/var/www
+      - ./docker/web/default.conf:/etc/nginx/conf.d/default.conf
+      - ./app:/var/www
 
   app:
     build:
-      context: ./app
+      context: ./docker/app
     environment:
       DB_HOST: db
     depends_on:
@@ -21,19 +21,19 @@ services:
     links:
       - db
     volumes:
-      - ../app:/var/www
-      - ./app/php-fpm.conf:/usr/local/etc/php/php-fpm.conf
-      - ../config.env:/var/www/config.env
+      - ./app:/var/www
+      - ./docker/app/php-fpm.conf:/usr/local/etc/php/php-fpm.conf
+      - ./.env:/var/www/config.env
 
   db:
-    build: ./db
+    build: ./docker/db
     env_file: .env
     expose:
       - "${MYSQL_PORT}"
     volumes:
-      - ./db/data:/var/lib/mysql
-      - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
-      - ./db/sql:/docker-entrypoint-initdb.d
+      - ./docker/db/data:/var/lib/mysql
+      - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./docker/db/sql:/docker-entrypoint-initdb.d
 
 # database のように永続的なストレージが欲しい場合に必要な
 # https://docs.docker.com/compose/compose-file/#volume-configuration-reference
