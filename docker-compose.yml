@@ -2,6 +2,7 @@ version: "2"
 services:
   web:
     build: ./docker/web
+    env_file: .env
     ports:
       - "80:80"
       - "443:443"
@@ -24,6 +25,7 @@ services:
       - ./app:/var/www
       - ./docker/app/php-fpm.conf:/usr/local/etc/php/php-fpm.conf
       - ./.env:/var/www/config.env
+      - ./docker/app/dot.profile:/root/.profile
 
   db:
     build: ./docker/db

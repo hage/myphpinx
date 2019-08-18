@@ -44,7 +44,7 @@ reset-db: down
 	rm -rf docker/db/data
 
 sh:
-	$(COMPOSE) exec $(APP_CONTAINER) /bin/sh
+	$(COMPOSE) exec $(APP_CONTAINER) /bin/sh --login
 	@echo " "
 
 dbbash:
