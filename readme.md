@@ -1,8 +1,8 @@
-# myphpinx -- MySQL + PHP + Nginx
+# myphpinx-laravel -- MySQL + PHP + Nginx for Laravel
 
 ## 概要
 
-これは MySQL + PHP + Nginx による開発環境を Docker にて素早く構築することを目的としています。ここにあるファイル群を雛形として環境構築を行います。素のままでも web ブラウザで https://localhost/ にアクセスしたら phpinfo および PDO による mysql アクセスのサンプルを見ることができます。
+これは MySQL + PHP + Nginx の元で動く Laravel 開発環境を Docker にて素早く構築することを目的としています。ここにあるファイル群を雛形として環境構築を行います。素のままでも web ブラウザで https://localhost/ にアクセスしたら phpinfo および PDO による mysql アクセスのサンプルを見ることができます。
 
 初回起動時および `make reset-db` 後はデータベースの再構築に起動後 1 分ほどかかります。それまでの間 web ブラウザによるアクセスや `make db` による mysql 起動はエラーになります。
 
