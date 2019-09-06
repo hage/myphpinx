@@ -19,4 +19,4 @@ RUN curl -sSLO https://phar.phpunit.de/phpunit.phar \
 # Laravel のインストール
 RUN composer global require laravel/installer
 
-WORKDIR /var/www/html
+WORKDIR /var/www
