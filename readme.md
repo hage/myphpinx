@@ -18,4 +18,6 @@
 * .git を消す
 * 改めて `git init . && git add . && git commit -m 'initial commit'`
 * プロジェクトに応じて Docker の設定を調整してコミット
-* 開発開始
+* `make sh` で app に入る
+* app 環境で `laravel new --force .` で laravel 初期アプリケーションをセットアップ
+* 開発を始める
